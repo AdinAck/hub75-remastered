@@ -1,0 +1,23 @@
+[package]
+name = "hub75-remastered"
+version = "0.1.0"
+authors = ["Adin Ackerman <adinackerman@gmail.com>"]
+edition = "2021"
+categories = ["embedded", "no-std"]
+keywords = ["embedded-graphics", "embedded-hal-driver"]
+description = "A completely rewritten driver for HUB75 displays."
+repository = "https://github.com/adinack/hub75-remastered"
+license-file = "LICENSE"
+
+[dependencies]
+embedded-hal-02 = { package = "embedded-hal", version = "0.2.7", features = [
+    "unproven",
+] }
+embedded-hal-1 = { package = "embedded-hal", version = "1.0" }
+embedded-graphics = "0.8.1"
+defmt = { version = "0.3.6", optional = true }
+
+[features]
+defmt = ["dep:defmt", "embedded-graphics/defmt", "embedded-hal-1/defmt-03"]
+hal-02 = []
+hal-1 = []
